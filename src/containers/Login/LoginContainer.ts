@@ -26,6 +26,15 @@ export class LoginContainer extends Vue {
   userData: any = {};
   error: any = {};
   isBusy: boolean = false;
+  fromConfirmation: boolean = false;
+
+  mounted() {
+    const fromConfirmationFlag = localStorage.getItem('fromConfirmation');
+    if (fromConfirmationFlag === 'yes') {
+      this.fromConfirmation = true;
+      localStorage.setItem('fromConfirmation', 'no');
+    }
+  }
 
   async login() {
     // Form Validation

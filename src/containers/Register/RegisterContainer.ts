@@ -86,6 +86,7 @@ export class RegisterContainer extends Vue {
       this.isBusy = false;
       return;
     }
+    localStorage.setItem('fromConfirmation', 'yes');
     this.$router.replace('/login');
     this.isBusy = false;
   }

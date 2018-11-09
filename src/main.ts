@@ -3,11 +3,10 @@ import { sync } from 'vuex-router-sync';
 import VueStripeCheckout from 'vue-stripe-checkout';
 import router from './router';
 import store from './store';
- // import styles
 import './styles/main.scss';
 
 Vue.use(VueStripeCheckout, {
-  key: 'pk_test_wXbXkFvn5o3ijJvCCWD1iiLW',
+  key: localStorage.pubKey,
   locale: 'auto',
   currency: 'USD',
   panelLabel: 'Pay {{amount}}',

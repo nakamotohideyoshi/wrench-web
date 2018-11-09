@@ -42,7 +42,7 @@ export class LoginContainer extends Vue {
     if (!this.userData.username) this.error.username = 'Please input your username.';
     if (!this.userData.password) this.error.password = 'Please input the password.';
     if (!_.isEmpty(this.error)) return;
-    
+
     // Login user
     this.isBusy = true;
     const loginUserResponse = await this.$store.dispatch(MutationTypes.LOGIN_USER_REQUEST, this.userData);
@@ -90,7 +90,11 @@ export class LoginContainer extends Vue {
       this.isBusy = false;
       return;
     }
-    localStorage.setItem('personInfo', JSON.stringify(getPersonInfoResponse.data));
+    const personInfo = getPersonInfoResponse.data;
+    const pubKey = personInfo.pub_key;
+    personInfo.pub_key = null;
+    localStorage.setItem('personInfo', JSON.stringify(personInfo));
+    localStorage.setItem('pubKey', pubKey);
     this.$router.replace(routeName);
     this.isBusy = false;
   }

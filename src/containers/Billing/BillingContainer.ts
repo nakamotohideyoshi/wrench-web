@@ -46,8 +46,9 @@ export class BillingContainer extends Vue {
   }
 
   payNow() {
+    console.log('in payNow() -- localStorage.pubKey: ' + localStorage.pubKey);
     this.$checkout.open({
-      name: `Wrench Monthly Billing!`,
+      name: 'Wrench Monthly Billing',
       currency: 'USD',
       amount: this.billingInfo.total_numeric,
       token: this.stripeCheckout

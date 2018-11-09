@@ -95,6 +95,7 @@ export class LoginContainer extends Vue {
     personInfo.pub_key = null;
     localStorage.setItem('personInfo', JSON.stringify(personInfo));
     localStorage.setItem('pubKey', pubKey);
+    console.log('in getPersonInfo() -- localStorage.pubKey: ' + localStorage.pubKey);
     this.$router.replace(routeName);
     this.isBusy = false;
   }

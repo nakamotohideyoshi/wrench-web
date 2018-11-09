@@ -6,6 +6,7 @@ import store from './store';
 import './styles/main.scss';
 
 Vue.use(VueStripeCheckout, {
+  asdfadsfadfadf: console.log('in Vue.use(VueStripeCheckout -- localStorage.pubKey: ' + localStorage.pubKey),
   key: localStorage.pubKey,
   locale: 'auto',
   currency: 'USD',

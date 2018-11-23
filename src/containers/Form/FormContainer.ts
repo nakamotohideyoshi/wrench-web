@@ -216,7 +216,6 @@ export class FormContainer extends Vue {
     }});
   }
   success_handler(response) {
-    console.log(response, 'slfjlksjdfljsfdlkj');
     this.fileUpLoadValidated = false;
   }
   handleFileUpload (fileList) {
@@ -227,7 +226,7 @@ export class FormContainer extends Vue {
     if (fileList[0].type.indexOf('csv') === -1) {
       this.error = 'Only .csv files can be submitted.';
       return;
-    }    
+    }
     const reader = new FileReader();
     reader.onload = e => {
       const csvContent = e.target.result;

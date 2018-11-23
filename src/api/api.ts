@@ -1,10 +1,11 @@
 import axios from 'axios'
+import {Config} from '../store/config'
 
 declare var localStorage;
 declare function clearStorage();
 declare function refreshAWSCredentials(callback?): any;
 
-let baseUrl = 'https://rw3gl2g6ff.execute-api.us-east-1.amazonaws.com/dev';
+let baseUrl = Config.API_URL;
 let config = {
   address: baseUrl,
   port: '',

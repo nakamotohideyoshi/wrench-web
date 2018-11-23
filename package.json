@@ -10,12 +10,14 @@
     "npm": ">=3"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production yarn run clean && yarn run compile",
+    "build-dev": "yarn run clean && yarn run compile-dev",
+    "build-prod": "yarn run clean && yarn run compile-prod",
     "build:parts": "yarn run sass && yarn run compile",
     "ci:teamcity": "karma --env=tc start karma.coverage.js && yarn run coverage:remap",
     "ci:jenkins": "karma --env=jk start karma.coverage.js && yarn run coverage:remap",
     "clean": "rimraf dist && rimraf coverage",
-    "compile": "webpack --config config/webpack.config.prod.js",
+    "compile-dev": "webpack --config config/webpack.config.dev.js",
+    "compile-prod": "webpack --config config/webpack.config.prod.js",
     "coverage": "yarn run coverage:run && yarn run coverage:remap && yarn run coverage:open",
     "coverage:open": "opn coverage/html-ts/index.html",
     "coverage:remap": "remap-istanbul -i coverage/json/coverage-final.json -o coverage/html-ts -t html",

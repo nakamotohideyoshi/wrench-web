@@ -1,8 +1,8 @@
-const cognitoUserPoolId = '** not set **';  //To run this on your local, run the dev build and it will copy over a version of this file with these values populated.
-const cognitoUserPoolClientId = '** not set **';
-const cognitoAwsRegion = '** not set **';
-const cognitoFileUploadBucket = '** not set **';
-const cognitoIdentityPoolId = '** not set **';
+const cognitoUserPoolId = 'us-east-1_XG9JMRGxm';
+const cognitoUserPoolClientId = '2btjskfmptccs5uoq80l2kd1uh';
+const cognitoAwsRegion = 'us-east-1';
+const cognitoFileUploadBucket = 'enrichment-file-drop-wrench-ai';
+const cognitoIdentityPoolId = 'us-east-1:4baee7b3-4ea4-45a6-aeab-b2eac550a143';
 
 //we have to hardcode the Logins key but we can't build this object when the page is first loaded because we don't have the token so we'll build it when it's needed with a function.
 function buildCredentialsObject(tokenInfo) {

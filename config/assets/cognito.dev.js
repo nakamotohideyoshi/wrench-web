@@ -1,5 +1,5 @@
-const cognitoUserPoolId = 'us-east-1_raRLtBeJ8';
-const cognitoUserPoolClientId = 'dv9fmg6ahb2mak1rd5rh0lkji';
+const cognitoUserPoolId = 'us-east-1_LpkkyngCt';
+const cognitoUserPoolClientId = '7ubm7ubpuuiv8k1g8gvhv6hlr5';
 const cognitoAwsRegion = 'us-east-1';
 const cognitoFileUploadBucket = 'dev-file-drop-wrench-ai';
 const cognitoIdentityPoolId = 'us-east-1:c2b40256-b24e-42d4-a2ce-b05c13e5d80a';
@@ -9,14 +9,12 @@ function buildCredentialsObject(tokenInfo) {
   credObj = {
     IdentityPoolId: cognitoIdentityPoolId,
     Logins: {
-      'cognito-idp.us-east-1.amazonaws.com/us-east-1_XG9JMRGxm': tokenInfo['IdToken']['jwtToken'],
+      'cognito-idp.us-east-1.amazonaws.com/us-east-1_LpkkyngCt': tokenInfo['IdToken']['jwtToken'],
     }
   };
   return credObj;
 }
 
-
-initializeStorage();
 
 var configString = localStorage.getItem("awsConfig");
 var config = JSON.parse(configString);
@@ -43,8 +41,6 @@ function clearStorage() {
   if (influencers_x) localStorage.setItem('influencers_x', influencers_x);
   if (influencers_y) localStorage.setItem('influencers_y', influencers_y);
   if (influencers_limit) localStorage.setItem('influencers_y', influencers_limit);
-
-  initializeStorage();
 }
 
 function loginUser(email, pwd) {

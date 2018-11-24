@@ -1,3 +1,3 @@
 export class Config {
-  public static API_URL = 'https://rw3gl2g6ff.execute-api.us-east-1.amazonaws.com/dev';
+  public static API_URL = 'https://pe743xrubd.execute-api.us-east-1.amazonaws.com/live';
 }

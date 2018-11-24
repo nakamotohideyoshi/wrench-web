@@ -15,6 +15,7 @@ function buildCredentialsObject(tokenInfo) {
   return credObj;
 }
 
+
 var configString = localStorage.getItem("awsConfig");
 var config = JSON.parse(configString);
 if(config != null) {
@@ -131,24 +132,32 @@ function uploadFile(file) {
     const credentialsObject = buildCredentialsObject(tokenInfo);
     AWS.config.region = cognitoAwsRegion;
     AWS.config.credentials = new AWS.CognitoIdentityCredentials(credentialsObject);
-    AWS.config.credentials.get(function(){
-        var s3bucket = new AWS.S3();
-        const longFileName = tokenInfo['IdToken']['payload']['email'] + ' || ' + tokenInfo['IdToken']['payload']['sub'] + ' || ' + file.name;
-        const obj = {
-          Key: longFileName,
-          Bucket: cognitoFileUploadBucket,
-          Body: file,
-          ContentType: file.type
-        };
-        s3bucket.upload(obj).on('httpUploadProgress', function(evt) {
-        }).send(function(err, data) {
-          if (err) {
-            reject(err);
-          }
-          else {
-            resolve(data);
-          }
-        });
+    AWS.config.credentials.get(function(err){
+        console.log('doing file upload');
+        if (err !== null) {
+          console.log('authentication failed.');
+          console.log('err obj: ' + JSON.stringify(err));
+          reject(err);
+        }
+        else {
+          var s3 = new AWS.S3();
+          const longFileName = tokenInfo['IdToken']['payload']['email'] + ' || ' + tokenInfo['IdToken']['payload']['sub'] + ' || ' + file.name;
+          const obj = {
+            Key: longFileName,
+            Bucket: cognitoFileUploadBucket,
+            Body: file,
+            ContentType: file.type
+          };
+          s3.upload(obj).on('httpUploadProgress', function(evt) {
+          }).send(function(err, data) {
+            if (err) {
+              reject(err);
+            }
+            else {
+              resolve(data);
+            }
+          });
+        }
     });
   });
 }

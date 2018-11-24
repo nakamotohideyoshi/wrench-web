@@ -15,9 +15,6 @@ function buildCredentialsObject(tokenInfo) {
   return credObj;
 }
 
-
-initializeStorage();
-
 var configString = localStorage.getItem("awsConfig");
 var config = JSON.parse(configString);
 if(config != null) {
@@ -43,8 +40,6 @@ function clearStorage() {
   if (influencers_x) localStorage.setItem('influencers_x', influencers_x);
   if (influencers_y) localStorage.setItem('influencers_y', influencers_y);
   if (influencers_limit) localStorage.setItem('influencers_y', influencers_limit);
-
-  initializeStorage();
 }
 
 function loginUser(email, pwd) {

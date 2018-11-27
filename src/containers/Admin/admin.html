@@ -88,21 +88,35 @@
                   <td class="field">Email address</td>
                   <td>{{email}}</td>
                 </tr>
-
+                <tr>
+                  <td class="field">Iterable API Key</td>
+                  <td>
+                    <div class="form-group">
+                      <input type="text" class="form-control" v-model="iterableApiKey" @change="firstNameValidated=true">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="field">Stitch Webhook URL</td>
+                  <td>{{stitchWebhookUrl}}</td>
+                </tr>
                 <tr class="highlight highlight--btn">
                   <td class="field">&nbsp;</td>
                   <td class="p-t-10 p-b-10">
                     <button type="submit" class="btn btn-primary btn-dark width-150" @click="updateUserInfo">Save</button>
-                    <!-- <button type="submit" class="btn btn-white btn-light width-150 m-l-5">Cancel</button> -->
                   </td>
                 </tr>
+              </tbody>
+            </table>
+            <table class="table table-profile">
+              <tbody v-if="!isFetching">
               </tbody>
             </table>
           </div>
           <!-- end table -->
         </div>
         <!-- end #profile-about tab -->
-       
+
       </div>
       <!-- end tab-content -->
     </div>

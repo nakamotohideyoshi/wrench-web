@@ -16,6 +16,8 @@ export class AdminContainer extends Vue {
   clientId = '';
   phone = '';
   email = '';
+  stitchWebhookUrl = '';
+  iterableApiKey = '';
   isFetching = false;
   errorMsg = '';
   firstNameValidated: boolean = true;
@@ -43,11 +45,14 @@ export class AdminContainer extends Vue {
     this.clientId = personInfo.client_id;
     this.phone = personInfo.phone;
     this.email = personInfo.email;
+    this.iterableApiKey = personInfo.iterableApiKey;
+    this.stitchWebhookUrl = personInfo.stitchWebhookUrl;
     this.isFetching = false;
   }
 
   updateUserInfo() {
     this.firstNameValidated = !!this.firstName;
+    this.lastNameValidated = !!this.lastName;
     this.lastNameValidated = !!this.lastName;
     if (this.firstNameValidated && this.lastNameValidated) {
       const personData = {
@@ -55,16 +60,18 @@ export class AdminContainer extends Vue {
         lastName: this.lastName,
         phone: this.phone,
         client_id: this.clientId,
-        company: this.company
+        company: this.company,
+        iterableApiKey: this.iterableApiKey,
+        stitchWebhookUrl: this.stitchWebhookUrl,
       };
       console.log(personData);
-      // this.$store.dispatch(MutationTypes.UPDATE_PERSON_INFO_REQUEST, { payload: personData, callback: (res) => {
-      //   if (res.status === 'ok') {
-          
-      //   } else {
-          
-      //   }
-      // }});
+      this.$store.dispatch(MutationTypes.UPDATE_PERSON_INFO_REQUEST, { payload: personData, callback: (res) => {
+        if (res.status === 'ok') {
+
+        } else {
+
+        }
+      }});
     }
   }
 }

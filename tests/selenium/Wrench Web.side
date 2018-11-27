@@ -57,7 +57,7 @@
         ["xpath=//div[@id='page-container']/div/div/div[2]/div[2]/form/div/div/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "scOtt445%"
+      "value": "bbbbbB2@"
     }, {
       "id": "18c3a9cf-f103-4a4d-9b20-159cff7f6690",
       "comment": "",
@@ -885,34 +885,6 @@
       "targets": [
         ["index=4"]
       ],
-      "value": ""
-    }, {
-      "id": "3a28c6c6-0761-407a-9b97-6d834c8da9c3",
-      "comment": "",
-      "command": "mouseDown",
-      "target": "css=rect.nsewdrag.drag",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "bb9ce20f-cc66-467d-b1ce-2afd8664736d",
-      "comment": "",
-      "command": "mouseUp",
-      "target": "css=div.dragcover",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "d56374fa-d11e-498e-a68b-a223ea233b9d",
-      "comment": "",
-      "command": "mouseDown",
-      "target": "css=rect.nsewdrag.drag",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "8e040c43-3e26-4747-81cd-35e732e42faf",
-      "comment": "",
-      "command": "mouseUp",
-      "target": "css=div.dragcover",
-      "targets": [],
       "value": ""
     }, {
       "id": "e46df1d9-6add-463e-b17e-3b287a85b314",
